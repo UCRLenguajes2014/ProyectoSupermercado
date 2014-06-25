@@ -17,7 +17,7 @@
     </p>
     <p>
         <asp:Label ID="lblPrecio" runat="server" Text="Precio deventa:" Width="100px"></asp:Label>
-        nbbvnvbn</p>
+        sdfsd</p>
     <p>
         <asp:Label ID="lblEstado" runat="server" Text="Estado:" Width="100px"></asp:Label>
     </p>
