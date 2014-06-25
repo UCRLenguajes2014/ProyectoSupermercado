@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TransferObject
 {
-   public class Producto
+   public  class Producto
     {
     }
 }
