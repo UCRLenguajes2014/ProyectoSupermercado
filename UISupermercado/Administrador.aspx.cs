@@ -13,5 +13,18 @@ namespace UISupermercado
         {
 
         }
+
+        protected void gvcontacto_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            
+        }
+
+        protected void gvcontacto_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            //int idcontacto = Convert.ToInt32(gvContacto.DataKeys[e.NewSelectedIndex].Value);
+
+            //Response.Redirect(string.Format("EditarContacto.aspx?id={0}", idcontacto));
+
+        }
     }
 }
