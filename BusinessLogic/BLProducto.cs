@@ -15,6 +15,20 @@ namespace BusinessLogic
            return producto.consultatProductos();
 
        }
+       public Producto consultatProducto(int codigo)
+       {
+           DAProducto producto = new DAProducto();
+           return producto.consultatUnPro(codigo);
+
+       }
+
+
+       public List<Producto> consultarByNombre(string nombre)
+       {
+           DAProducto producto = new DAProducto();
+           return producto.consultarByNombre(nombre);
+
+       }
 
        public void insertar(Producto cli)
        {

@@ -29,29 +29,34 @@
         <br />
     </p>
     <p>
-        &nbsp;</p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INFORMACIÓN DE PRODUCTO:&nbsp;</p>
     <div style="height: 251px; margin-left: 41px; width: 713px;">
         <div>
             <table style="width: 100%;">
                 <tr>
                     <td class="style2">
                         <div style="width: 382px; height: 246px" title="Producto">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblCodigo" runat="server" Text="Código:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                             <br />
                             <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lbNombre" runat="server" Text="Nombre:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
                             <br />
                             <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblPrecio" runat="server" Text="Precio deventa:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
                             <br />
                             <br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="lblCantidad" runat="server" Text="Cantidad:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
                             <br />
                             <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblEstado" runat="server" Text="Estado:" Width="100px"></asp:Label>
                             <asp:DropDownList ID="dpdEstado" runat="server" Height="17px" Width="127px">
                                 <asp:ListItem Value="true">Activo</asp:ListItem>
@@ -59,6 +64,7 @@
                             </asp:DropDownList>
                             <br />
                             <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblUnidad" runat="server" Text="Unidad:" Width="100px"></asp:Label>
         <asp:DropDownList ID="dpdUnidad" runat="server" Height="16px" Width="127px">
             <asp:ListItem>kg</asp:ListItem>
@@ -90,7 +96,10 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Button ID="cmdGuardar" runat="server" onclick="cmdGuardar_Click" 
                             Text="Guardar" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="cmdModificar" runat="server" onclick="cmdModificar_Click" 
+                            Text="Modificar" />
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                         <asp:Button ID="cmdLimpiar" runat="server" onclick="cmdLimpiar_Click" 
                             Text="Limpiar" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -102,11 +111,18 @@
                 </tr>
                 <tr>
                     <td class="style3" colspan="2" rowspan="2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtBuscar" runat="server" 
+                            ontextchanged="txtBuscar_TextChanged" Width="246px"></asp:TextBox>
+                        <asp:ImageButton ID="cmdBuscar" runat="server" Height="22px" 
+                            ImageUrl="~/imagenes/consultar.png" onclick="cmdBuscar_Click" Width="31px" />
+                        <br />
                         <br />
                         <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" 
                             CellPadding="4" DataKeyNames="codigo" ForeColor="#333333" GridLines="None" 
                             onrowdeleting="gvcontacto_RowDeleting" 
-                            onselectedindexchanging="gvProductos_SelectedIndexChanging" Width="690px">
+                            onselectedindexchanging="gvProductos_SelectedIndexChanging" Width="678px" 
+                            Height="27px" PageSize="6">
                             <RowStyle BackColor="#E3EAEB" />
                             <Columns>
                                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/eliminar.png" 
@@ -121,7 +137,7 @@
                                 <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
                                 <asp:BoundField HeaderText="Estado" DataField="Estado" />
                                 <asp:BoundField HeaderText="Unidad" DataField="Unidad" />
-                                <asp:TemplateField HeaderText="Foto">
+                                <asp:TemplateField HeaderText="Foto" Visible="False">
                                     <ItemTemplate>
                                         <asp:Image ID="foto" runat="server" Height="100px" ImageUrl="" 
                                             Width="100px" />

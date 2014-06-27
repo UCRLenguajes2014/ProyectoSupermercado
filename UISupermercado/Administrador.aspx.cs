@@ -67,8 +67,8 @@ namespace UISupermercado
 
         protected void gvcontacto_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            //int idcontacto = Convert.ToInt32(gvContacto.DataKeys[e.NewSelectedIndex].Value);
-
+            int idcontacto = Convert.ToInt32(gvProductos.DataKeys[e.NewSelectedIndex].Value);
+            
             //Response.Redirect(string.Format("EditarContacto.aspx?id={0}", idcontacto));
 
         }
@@ -112,7 +112,19 @@ namespace UISupermercado
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            int idcontacto = Convert.ToInt32(gvProductos.DataKeys[e.NewSelectedIndex].Value);
+            int codigo = Convert.ToInt32(gvProductos.DataKeys[e.NewSelectedIndex].Value);
+            BLProducto blproducto = new BLProducto();
+           Producto produc = new Producto();
+            produc = blproducto.consultatProducto(codigo);
+            txtCodigo.Text =  produc.codigo.ToString();
+            txtNombre.Text = produc.nombre;
+            txtPrecio.Text = produc.precio.ToString();
+            txtCantidad.Text = produc.cantidad.ToString();
+            dpdEstado.SelectedValue = produc.estado.ToString();
+            dpdUnidad.SelectedValue = produc.unidad.ToString();
+            txtDirImagen.Text = produc.foto.ToString();
+            byteToImage(produc.foto);
+
         }
 
         protected void cmdLimpiar_Click(object sender, EventArgs e)
@@ -120,6 +132,7 @@ namespace UISupermercado
             txtCodigo.Text = "";
             txtNombre.Text = "";
             txtPrecio.Text = "";
+            txtCantidad.Text = "";
             imagen.ImageUrl = "imagenes/nodisponible.png";
         }
 
@@ -139,7 +152,7 @@ namespace UISupermercado
                 producto.unidad = dpdUnidad.SelectedValue.ToString();
                 blproducto.insertar(producto);
                 llenarDataGrid();
-                //txtCodigoProducto.Enabled = false;
+               
             }
             catch (Exception)
             {
@@ -147,11 +160,75 @@ namespace UISupermercado
                 //.Show("Revise los datos ingresados");
             }
         }
-        public void byteArrayToImage(byte[] byteArrayIn)
+        public void byteToImage(byte[] byteArrayIn)
         {
             string base64String = Convert.ToBase64String(byteArrayIn, 0, byteArrayIn.Length);
             imagen.ImageUrl = "data:image/png;base64," + base64String;
             imagen.Visible = true;
+        }
+
+        //public byte[] imageToByteArray(System.Web.UI.WebControls.Image imageIn)
+        //{
+        //    //MemoryStream ms = new MemoryStream();
+        //    //(ms, System.Drawing.Imaging.ImageFormat.Gif);
+        //    //return ms.ToArray();
+        //}
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                BLProducto producto = new BLProducto();
+                gvProductos.DataSource = producto.consultarByNombre(txtBuscar.Text.Trim());
+                gvProductos.DataBind();
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        protected void cmdBuscar_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                BLProducto producto = new BLProducto();
+                gvProductos.DataSource = producto.consultarByNombre(txtBuscar.Text.Trim());
+                gvProductos.DataBind();
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        protected void cmdModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                Producto producto = new Producto();
+                BLProducto blproducto = new BLProducto();
+                producto.codigo = int.Parse(txtCodigo.Text.Trim());
+                producto.nombre = txtNombre.Text.Trim();
+                producto.precio = int.Parse(txtPrecio.Text.Trim());
+                producto.cantidad = int.Parse(txtCantidad.Text.Trim());
+                producto.estado = Convert.ToBoolean(dpdEstado.SelectedValue.ToString());
+                //producto.foto = imageToByteArray(imagen);
+                producto.unidad = dpdUnidad.SelectedValue.ToString();
+                blproducto.insertar(producto);
+                llenarDataGrid();
+
+            }
+            catch (Exception)
+            {
+
+                //.Show("Revise los datos ingresados");
+            }
         }
 
         

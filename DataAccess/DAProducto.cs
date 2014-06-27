@@ -52,6 +52,87 @@ namespace DataAccess
 
         }
 
+
+       public Producto consultatUnPro(int codigo)
+       {
+           Producto retorno = new Producto();
+           try
+           {
+               if (conex.State != ConnectionState.Open)
+               {
+                   conex.Open();
+               }
+               SqlCommand sel = new SqlCommand("Select * from Producto  where Codigo = @Codigo", conex);
+               sel.Parameters.AddWithValue("@Codigo", codigo);
+               SqlDataReader lector;
+               lector = sel.ExecuteReader();
+               if (lector.HasRows)
+               {
+                   while (lector.Read())
+                   {
+                       retorno =  (new Producto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5], (string)lector[6]));
+                   }
+               }
+
+
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+           finally
+           {
+               if (conex.State != ConnectionState.Closed)
+               {
+                   conex.Close();
+               }
+           }
+           return retorno;
+
+
+
+       }
+       public List<Producto> consultarByNombre(string nombre)
+       {
+           List<Producto> retorno = new List<Producto>();
+           try
+           {
+               if (conex.State != ConnectionState.Open)
+               {
+                   conex.Open();
+               }
+               SqlCommand sel = new SqlCommand("SELECT * FROM Producto WHERE Nombre LIKE '%" + nombre + "%' ORDER BY Nombre ASC", conex);
+               sel.Parameters.AddWithValue("@buscar", nombre);
+               SqlDataReader lector;
+               lector = sel.ExecuteReader();
+               if (lector.HasRows)
+               {
+                   while (lector.Read())
+                   {
+                       retorno.Add(new Producto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5], (string)lector[6]));
+                   }
+               }
+
+
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+           finally
+           {
+               if (conex.State != ConnectionState.Closed)
+               {
+                   conex.Close();
+               }
+           }
+           return retorno;
+
+       }
+
+
        public void insertar(Producto cont)
        {
            try

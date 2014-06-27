@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WSSupermercado.WSOrdenSuper" CodeBehind="WSOrdenSuper.svc.cs" %>
