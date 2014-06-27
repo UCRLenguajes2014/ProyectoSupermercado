@@ -3,11 +3,11 @@
     <style type="text/css">
     .style1
     {
-        height: 75px;
-    }
+            height: 161px;
+        }
     .style2
     {
-        height: 75px;
+        height: 161px;
         width: 401px;
     }
     .style3
@@ -35,7 +35,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td class="style2">
-                        <div style="width: 382px; height: 205px" title="Producto">
+                        <div style="width: 382px; height: 246px" title="Producto">
         <asp:Label ID="lblCodigo" runat="server" Text="Código:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                             <br />
@@ -53,14 +53,14 @@
                             <br />
                             <br />
         <asp:Label ID="lblEstado" runat="server" Text="Estado:" Width="100px"></asp:Label>
-                            <asp:DropDownList ID="DropDownList2" runat="server" Height="17px" Width="127px">
-                                <asp:ListItem>Activo</asp:ListItem>
-                                <asp:ListItem>Inactivo</asp:ListItem>
+                            <asp:DropDownList ID="dpdEstado" runat="server" Height="17px" Width="127px">
+                                <asp:ListItem Value="true">Activo</asp:ListItem>
+                                <asp:ListItem Value="false">Inactivo</asp:ListItem>
                             </asp:DropDownList>
                             <br />
                             <br />
         <asp:Label ID="lblUnidad" runat="server" Text="Unidad:" Width="100px"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="127px">
+        <asp:DropDownList ID="dpdUnidad" runat="server" Height="16px" Width="127px">
             <asp:ListItem>kg</asp:ListItem>
             <asp:ListItem>L</asp:ListItem>
             <asp:ListItem>unid</asp:ListItem>
@@ -103,7 +103,7 @@
                 <tr>
                     <td class="style3" colspan="2" rowspan="2">
                         <br />
-                        <asp:GridView ID="gvProductos" runat="server" 
+                        <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" 
                             CellPadding="4" DataKeyNames="codigo" ForeColor="#333333" GridLines="None" 
                             onrowdeleting="gvcontacto_RowDeleting" 
                             onselectedindexchanging="gvProductos_SelectedIndexChanging" Width="690px">
@@ -118,12 +118,12 @@
                                 <asp:BoundField DataField="codigo" HeaderText="Codigo" />
                                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                                 <asp:BoundField DataField="Precio" HeaderText="Precio de venta" />
-                                <asp:BoundField HeaderText="Cantidad" />
-                                <asp:BoundField HeaderText="Estado" />
-                                <asp:BoundField HeaderText="Unidad" />
-                                <asp:TemplateField HeaderText="Imágen">
+                                <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
+                                <asp:BoundField HeaderText="Estado" DataField="Estado" />
+                                <asp:BoundField HeaderText="Unidad" DataField="Unidad" />
+                                <asp:TemplateField HeaderText="Foto">
                                     <ItemTemplate>
-                                        <asp:Image ID="fotogradia" runat="server" Height="100px" ImageUrl="" 
+                                        <asp:Image ID="foto" runat="server" Height="100px" ImageUrl="" 
                                             Width="100px" />
                                     </ItemTemplate>
                                 </asp:TemplateField>

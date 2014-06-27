@@ -13,9 +13,9 @@ namespace TransferObject
         public string nombre { get; set; }
         public double precio { get; set; }
         public double cantidad { get; set; }
-        public Boolean estado { get; set; }
+        public bool estado { get; set; }
         public String unidad { get; set; }
-        public Byte[] fotogradia { get; set; }
+        public Byte[] foto { get; set; }
 
         public Producto()
         {
@@ -28,7 +28,7 @@ namespace TransferObject
            this.precio = p_3;
            this.cantidad = p_4;
            this.estado = p_5;
-           this.fotogradia = p_6;
+           this.foto = p_6;
            this.unidad = p_7;
        }
        

@@ -37,6 +37,32 @@ namespace UISupermercado
         protected void gvcontacto_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             
+
+            
+            try
+            {
+                Producto producto = new Producto();
+                BLProducto blproducto = new BLProducto();
+             
+
+                    //if (MessageBox.Show("Está seguro de eliminar el estudiante: " + dtGProductos.CurrentRow.Cells[1].Value, "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    
+                    
+                        producto.codigo =  int.Parse(gvProductos.DataKeys[e.RowIndex].Value.ToString());
+                        blproducto.Eliminar(producto.codigo);
+                        llenarDataGrid();
+                      
+                       
+
+                    
+                
+            }
+            catch (Exception)
+            {
+
+                //MessageBox.Show("Error al eliminar");
+            }
+
         }
 
         protected void gvcontacto_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -86,7 +112,7 @@ namespace UISupermercado
 
         protected void gvProductos_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            txtDirImagen.Text = obteneUrlImagen();
+            int idcontacto = Convert.ToInt32(gvProductos.DataKeys[e.NewSelectedIndex].Value);
         }
 
         protected void cmdLimpiar_Click(object sender, EventArgs e)
@@ -108,8 +134,11 @@ namespace UISupermercado
                 producto.nombre = txtNombre.Text.Trim();
                 producto.precio = int.Parse(txtPrecio.Text.Trim());
                 producto.cantidad = int.Parse(txtCantidad.Text.Trim());
-                //blproducto.insertar(producto);
-                //llenarDataGrid();
+                producto.estado = Convert.ToBoolean(dpdEstado.SelectedValue.ToString());
+                producto.foto = FUSubirImagen.FileBytes;
+                producto.unidad = dpdUnidad.SelectedValue.ToString();
+                blproducto.insertar(producto);
+                llenarDataGrid();
                 //txtCodigoProducto.Enabled = false;
             }
             catch (Exception)
@@ -117,6 +146,12 @@ namespace UISupermercado
 
                 //.Show("Revise los datos ingresados");
             }
+        }
+        public void byteArrayToImage(byte[] byteArrayIn)
+        {
+            string base64String = Convert.ToBase64String(byteArrayIn, 0, byteArrayIn.Length);
+            imagen.ImageUrl = "data:image/png;base64," + base64String;
+            imagen.Visible = true;
         }
 
         

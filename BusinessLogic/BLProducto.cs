@@ -16,5 +16,19 @@ namespace BusinessLogic
 
        }
 
+       public void insertar(Producto cli)
+       {
+           DAProducto producto = new DAProducto();
+           producto.insertar(cli);
+
+       }
+
+       public void Eliminar(int codigoe)
+       {
+           DAProducto daoPro = new DAProducto();
+           daoPro.Eliminar(codigoe);
+       }
+
+
     }
 }
