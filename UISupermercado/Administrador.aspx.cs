@@ -65,13 +65,7 @@ namespace UISupermercado
 
         }
 
-        protected void gvcontacto_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            int idcontacto = Convert.ToInt32(gvProductos.DataKeys[e.NewSelectedIndex].Value);
-            
-            //Response.Redirect(string.Format("EditarContacto.aspx?id={0}", idcontacto));
-
-        }
+       
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -121,7 +115,7 @@ namespace UISupermercado
             txtPrecio.Text = produc.precio.ToString();
             txtCantidad.Text = produc.cantidad.ToString();
             dpdEstado.SelectedValue = produc.estado.ToString();
-            dpdUnidad.SelectedValue = produc.unidad.ToString();
+            dpdUnidad.SelectedValue = produc.unidad;
             txtDirImagen.Text = produc.foto.ToString();
             byteToImage(produc.foto);
 
@@ -135,6 +129,49 @@ namespace UISupermercado
             txtCantidad.Text = "";
             imagen.ImageUrl = "imagenes/nodisponible.png";
         }
+        //protected void btGuardar_Click(object sender, EventArgs e)
+        //{
+        //    if (validar())
+        //    {
+        //        try
+        //        {
+        //            if (FileUpload.PostedFile.ContentType == "image/jpeg")
+        //            {
+        //                if (FileUpload.PostedFile.ContentLength < 102400)
+        //                {
+        //                    HttpPostedFile ImgFile = FileUpload.PostedFile;
+        //                    Byte[] image = new Byte[FileUpload.PostedFile.ContentLength];
+        //                    ImgFile.InputStream.Read(image, 0, FileUpload.PostedFile.ContentLength);
+        //                    Producto p = new Producto();
+        //                    p.codigo = 0;
+        //                    p.nombre = txNombre.Text;
+        //                    p.precioVenta = Convert.ToInt32(txPrecioVenta.Text.Trim());
+        //                    p.cantidadInventario = Convert.ToInt32(txCantidadInventario.Text.Trim());
+
+        //                    if (cbActivo.Checked)
+        //                    {
+        //                        p.activo = true;
+        //                    }
+        //                    else { p.activo = false; }
+        //                    p.imagen = image;
+        //                    p.unidad = Convert.ToInt32(drUnidad.SelectedItem.Value);
+        //                    manejador.insert(p);
+        //                    gvProductos.DataSource = manejador.getAll();
+        //                    gvProductos.DataBind();
+        //                }
+        //                else
+        //                    lbEstado.Text = "Estado de la carga: La carga de imagenes no debe superar los 100kb!";
+        //            }
+        //            else
+        //                lbEstado.Text = "Estado de la carga: Sólo imagenes JPG!";
+        //        }
+        //        catch
+        //        {
+        //            lbEstado.Text = "El archivo no se pudo cargar.";
+        //        }
+
+        //    }
+        //}
 
         protected void cmdGuardar_Click(object sender, EventArgs e)
         {
@@ -147,9 +184,9 @@ namespace UISupermercado
                 producto.nombre = txtNombre.Text.Trim();
                 producto.precio = int.Parse(txtPrecio.Text.Trim());
                 producto.cantidad = int.Parse(txtCantidad.Text.Trim());
-                producto.estado = Convert.ToBoolean(dpdEstado.SelectedValue.ToString());
+                producto.estado = Convert.ToBoolean(dpdEstado.SelectedValue.ToString().Trim());
                 producto.foto = FUSubirImagen.FileBytes;
-                producto.unidad = dpdUnidad.SelectedValue.ToString();
+                producto.unidad = dpdUnidad.SelectedValue.ToString().Trim();
                 blproducto.insertar(producto);
                 llenarDataGrid();
                
@@ -205,6 +242,30 @@ namespace UISupermercado
 
             }
         }
+        //protected void btModImagen_Click(object sender, EventArgs e)
+        //{
+        //    if (FileUpload.HasFile)
+        //    {
+        //        try
+        //        {
+        //            if (FileUpload.PostedFile.ContentType == "image/jpeg")
+        //            {
+        //                if (FileUpload.PostedFile.ContentLength < 102400)
+        //                {
+        //                    HttpPostedFile ImgFile = FileUpload.PostedFile;
+        //                    Byte[] imagen = new Byte[FileUpload.PostedFile.ContentLength];
+        //                    ImgFile.InputStream.Read(imagen, 0, FileUpload.PostedFile.ContentLength);
+        //                    manejador.updateImagen(Convert.ToInt32(ViewState["codigo"]), imagen);
+        //                    ImagenProducto.ImageUrl = FileUpload.PostedFile.InputStream.ToString();
+        //                }
+        //                else { lbEstado.Text = "Estado de la carga: La carga de imagenes no debe superar los 100kb!"; }
+        //            }
+        //            else { lbEstado.Text = "Estado de la carga: Sólo imagenes JPG!"; }
+        //        }
+        //        catch { lbEstado.Text = "El archivo no se pudo cargar."; }
+        //    }
+        //    else { lbEstado.Text = "Ingrese la imagen para continuar"; }
+        //}
 
         protected void cmdModificar_Click(object sender, EventArgs e)
         {

@@ -11,7 +11,22 @@ namespace UISupermercado
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                SetImageUrl();
+            }
+        }
 
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            SetImageUrl();
+        }
+
+        private void SetImageUrl()
+        {
+            Random rand = new Random();
+            int i = rand.Next(1, 3);
+            Image1.ImageUrl = "~/imagenes/" + i.ToString() + ".jpg";
         }
     }
 }

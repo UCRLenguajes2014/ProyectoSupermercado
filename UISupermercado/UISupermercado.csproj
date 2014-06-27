@@ -60,6 +60,8 @@
     <Content Include="imagenes\consultar.png" />
     <Content Include="imagenes\eliminar.png" />
     <Content Include="imagenes\nodisponible.png" />
+    <Content Include="imagenes\1.jpg" />
+    <Content Include="imagenes\2.jpg" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />

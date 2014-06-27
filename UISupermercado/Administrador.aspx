@@ -8,7 +8,7 @@
     .style2
     {
         height: 161px;
-        width: 401px;
+        width: 465px;
     }
     .style3
     {
@@ -16,7 +16,7 @@
         .style4
         {
             height: 45px;
-            width: 401px;
+            width: 465px;
         }
         .style5
         {
@@ -35,28 +35,37 @@
             <table style="width: 100%;">
                 <tr>
                     <td class="style2">
-                        <div style="width: 382px; height: 246px" title="Producto">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div style="width: 442px; height: 246px" title="Producto">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblCodigo" runat="server" Text="Código:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                                ControlToValidate="txtCodigo" ErrorMessage="Es requerido"></asp:RequiredFieldValidator>
+&nbsp;
                             <br />
                             <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lbNombre" runat="server" Text="Nombre:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                                ControlToValidate="txtNombre" ErrorMessage="Es requerido"></asp:RequiredFieldValidator>
                             <br />
                             <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="lblPrecio" runat="server" Text="Precio deventa:" Width="100px"></asp:Label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="lblPrecio" runat="server" Text="Precio de venta:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                                ControlToValidate="txtPrecio" ErrorMessage="Es requerido"></asp:RequiredFieldValidator>
                             <br />
                             <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Label ID="lblCantidad" runat="server" Text="Cantidad:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                                ControlToValidate="txtCantidad" ErrorMessage="Es requerido"></asp:RequiredFieldValidator>
                             <br />
                             <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblEstado" runat="server" Text="Estado:" Width="100px"></asp:Label>
                             <asp:DropDownList ID="dpdEstado" runat="server" Height="17px" Width="127px">
                                 <asp:ListItem Value="true">Activo</asp:ListItem>
@@ -64,7 +73,7 @@
                             </asp:DropDownList>
                             <br />
                             <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="lblUnidad" runat="server" Text="Unidad:" Width="100px"></asp:Label>
         <asp:DropDownList ID="dpdUnidad" runat="server" Height="16px" Width="127px">
             <asp:ListItem>kg</asp:ListItem>
