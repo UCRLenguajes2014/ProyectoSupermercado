@@ -292,6 +292,11 @@ namespace UISupermercado
             }
         }
 
+        protected void gvProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

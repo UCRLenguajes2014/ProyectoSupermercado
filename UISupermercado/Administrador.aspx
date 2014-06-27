@@ -131,7 +131,8 @@
                             CellPadding="4" DataKeyNames="codigo" ForeColor="#333333" GridLines="None" 
                             onrowdeleting="gvcontacto_RowDeleting" 
                             onselectedindexchanging="gvProductos_SelectedIndexChanging" Width="678px" 
-                            Height="27px" PageSize="6">
+                            Height="27px" PageSize="6" 
+                            onselectedindexchanged="gvProductos_SelectedIndexChanged">
                             <RowStyle BackColor="#E3EAEB" />
                             <Columns>
                                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/eliminar.png" 
