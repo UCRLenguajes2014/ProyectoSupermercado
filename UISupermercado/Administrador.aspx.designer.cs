@@ -67,6 +67,24 @@ namespace UISupermercado {
         protected global::System.Web.UI.WebControls.TextBox txtPrecio;
         
         /// <summary>
+        /// lblCantidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCantidad;
+        
+        /// <summary>
+        /// txtCantidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
+        
+        /// <summary>
         /// lblEstado control.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,15 @@ namespace UISupermercado {
         protected global::System.Web.UI.WebControls.ImageMap imagen;
         
         /// <summary>
+        /// txtDirImagen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDirImagen;
+        
+        /// <summary>
         /// FUSubirImagen control.
         /// </summary>
         /// <remarks>
@@ -128,6 +155,24 @@ namespace UISupermercado {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// cmdGuardar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cmdGuardar;
+        
+        /// <summary>
+        /// cmdLimpiar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cmdLimpiar;
         
         /// <summary>
         /// gvProductos control.

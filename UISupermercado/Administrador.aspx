@@ -13,7 +13,16 @@
     .style3
     {
     }
-</style>
+        .style4
+        {
+            height: 45px;
+            width: 401px;
+        }
+        .style5
+        {
+            height: 45px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <p>
@@ -26,7 +35,7 @@
             <table style="width: 100%;">
                 <tr>
                     <td class="style2">
-                        <div style="width: 382px; height: 227px" title="Producto">
+                        <div style="width: 382px; height: 205px" title="Producto">
         <asp:Label ID="lblCodigo" runat="server" Text="Código:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                             <br />
@@ -37,6 +46,10 @@
                             <br />
         <asp:Label ID="lblPrecio" runat="server" Text="Precio deventa:" Width="100px"></asp:Label>
                             <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                            <br />
+                            <br />
+                            <asp:Label ID="lblCantidad" runat="server" Text="Cantidad:" Width="100px"></asp:Label>
+                            <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
                             <br />
                             <br />
         <asp:Label ID="lblEstado" runat="server" Text="Estado:" Width="100px"></asp:Label>
@@ -58,26 +71,42 @@
                         </div>
                     </td>
                     <td class="style1">
-                        <div style="height: 217px; width: 235px; margin-left: 52px">
-        <asp:ImageMap ID="imagen" runat="server" BorderStyle="Dotted" Height="102px" 
-            Width="89px">
+                        <div style="height: 217px; width: 269px; margin-left: 52px">
+        <asp:ImageMap ID="imagen" runat="server" BorderStyle="Dotted" Height="123px" 
+            Width="127px">
         </asp:ImageMap>
+                            <asp:TextBox ID="txtDirImagen" runat="server" Visible="False"></asp:TextBox>
         <asp:FileUpload ID="FUSubirImagen" runat="server" style="margin-top: 28px" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="Button1" runat="server" Text="Cargar  Foto" Width="88px" />
+                            <asp:Button ID="Button1" runat="server" Text="Cargar  Foto" Width="88px" 
+                                onclick="Button1_Click" />
                         </div>
                     </td>
                     <td class="style1">
                     </td>
                 </tr>
                 <tr>
+                    <td class="style4">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="cmdGuardar" runat="server" onclick="cmdGuardar_Click" 
+                            Text="Guardar" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="cmdLimpiar" runat="server" onclick="cmdLimpiar_Click" 
+                            Text="Limpiar" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td class="style5">
+                    </td>
+                    <td class="style5">
+                    </td>
+                </tr>
+                <tr>
                     <td class="style3" colspan="2" rowspan="2">
                         <br />
-                        <asp:GridView ID="gvProductos" runat="server" AutoGenerateColumns="False" 
+                        <asp:GridView ID="gvProductos" runat="server" 
                             CellPadding="4" DataKeyNames="codigo" ForeColor="#333333" GridLines="None" 
                             onrowdeleting="gvcontacto_RowDeleting" 
-                            onselectedindexchanged="gvProductos_SelectedIndexChanged" 
-                            onselectedindexchanging="gvcontacto_SelectedIndexChanging" Width="690px">
+                            onselectedindexchanging="gvProductos_SelectedIndexChanging" Width="690px">
                             <RowStyle BackColor="#E3EAEB" />
                             <Columns>
                                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/eliminar.png" 
@@ -141,24 +170,24 @@
         &nbsp;</p>
     <p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
-    <p>
+<p>
         &nbsp;</p>
 </asp:Content>
