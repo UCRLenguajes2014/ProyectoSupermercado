@@ -110,7 +110,7 @@ first child of the left and right table columns */
     font-weight: 700;
     margin: 0px;
     padding: 0px 0px 0px 20px;
-    color: #f9f9f9;
+    color: #0f151f;
     border: none;
     line-height: 2em;
     font-size: 2em;
@@ -146,7 +146,7 @@ first child of the left and right table columns */
 
 div.hideSkiplink
 {
-    background-color:#3a4f80;
+    background-color:#335E62;
     width:100%;
 }
 
