@@ -8,27 +8,30 @@ using System.Data;
 
 namespace DataAccess
 {
-    class DACliente
+    class DADetalleOrden
     {
         private SqlConnection conex = new SqlConnection(DataAccess.Properties.Settings.Default.coneSetting);
 
-        public List<TOCliente> consultatOrdenes()
+        public List<TODetalleOrden> consultarDetallesOrden(string OrdenID)
         {
-            List<TOCliente> retorno = new List<TOCliente>();
+            List<TODetalleOrden> retorno = new List<TODetalleOrden>();
             try
             {
                 if (conex.State != ConnectionState.Open)
                 {
                     conex.Open();
                 }
-                SqlCommand sel = new SqlCommand("SELECT * from Cliente", conex);
+                SqlCommand sel = new SqlCommand("SELECT * from DetalleOrden where CodigoOrden = @IdOrden", conex);
+
+                sel.Parameters.AddWithValue("@IdOrden", OrdenID);
+
                 SqlDataReader lector;
                 lector = sel.ExecuteReader();
                 if (lector.HasRows)
                 {
                     while (lector.Read())
                     {
-                        retorno.Add(new TOCliente((int)lector[0], string(lector[1]), string(lector[2]), (string)lector[3], (int)lector[4],(string)lector[5],(string)lector[6],(string)lector[7]));
+                        retorno.Add(new TODetalleOrden((int)lector[0], (int)lector[1], int(lector[2]), (Int32)lector[3]));
                     }
                 }
 

@@ -41,7 +41,7 @@ namespace UISupermercado
             
             try
             {
-                Producto producto = new Producto();
+                TOProducto producto = new TOProducto();
                 BLProducto blproducto = new BLProducto();
              
 
@@ -108,7 +108,7 @@ namespace UISupermercado
         {
             int codigo = Convert.ToInt32(gvProductos.DataKeys[e.NewSelectedIndex].Value);
             BLProducto blproducto = new BLProducto();
-           Producto produc = new Producto();
+           TOProducto produc = new TOProducto();
             produc = blproducto.consultatProducto(codigo);
             txtCodigo.Text =  produc.codigo.ToString();
             txtNombre.Text = produc.nombre;
@@ -178,7 +178,7 @@ namespace UISupermercado
             try
             {
 
-                Producto producto = new Producto();
+                TOProducto producto = new TOProducto();
                 BLProducto blproducto = new BLProducto();
                 producto.codigo = int.Parse(txtCodigo.Text.Trim());
                 producto.nombre = txtNombre.Text.Trim();
@@ -272,7 +272,7 @@ namespace UISupermercado
             try
             {
 
-                Producto producto = new Producto();
+                TOProducto producto = new TOProducto();
                 BLProducto blproducto = new BLProducto();
                 producto.codigo = int.Parse(txtCodigo.Text.Trim());
                 producto.nombre = txtNombre.Text.Trim();

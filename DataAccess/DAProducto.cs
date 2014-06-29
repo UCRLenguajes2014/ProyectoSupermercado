@@ -12,9 +12,9 @@ namespace DataAccess
        private SqlConnection conex = new SqlConnection(DataAccess.Properties.Settings.Default.coneSetting);
 
 
-       public List<Producto> consultatProductos()
+       public List<TOProducto> consultatProductos()
         {
-            List<Producto> retorno = new List<Producto>();
+            List<TOProducto> retorno = new List<TOProducto>();
             try
             {
                 if (conex.State != ConnectionState.Open)
@@ -28,7 +28,7 @@ namespace DataAccess
                 {
                     while (lector.Read())
                     {
-                        retorno.Add(new Producto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5],(string)lector[6]));
+                        retorno.Add(new TOProducto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5],(string)lector[6]));
                     }
                 }
 
@@ -53,9 +53,9 @@ namespace DataAccess
         }
 
 
-       public Producto consultatUnPro(int codigo)
+       public TOProducto consultatUnPro(int codigo)
        {
-           Producto retorno = new Producto();
+           TOProducto retorno = new TOProducto();
            try
            {
                if (conex.State != ConnectionState.Open)
@@ -70,7 +70,7 @@ namespace DataAccess
                {
                    while (lector.Read())
                    {
-                       retorno =  (new Producto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5], (string)lector[6]));
+                       retorno =  (new TOProducto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5], (string)lector[6]));
                    }
                }
 
@@ -93,9 +93,9 @@ namespace DataAccess
 
 
        }
-       public List<Producto> consultarByNombre(string nombre)
+       public List<TOProducto> consultarByNombre(string nombre)
        {
-           List<Producto> retorno = new List<Producto>();
+           List<TOProducto> retorno = new List<TOProducto>();
            try
            {
                if (conex.State != ConnectionState.Open)
@@ -110,7 +110,7 @@ namespace DataAccess
                {
                    while (lector.Read())
                    {
-                       retorno.Add(new Producto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5], (string)lector[6]));
+                       retorno.Add(new TOProducto((int)lector[0], (string)lector[1], Convert.ToDouble(lector[2]), (Int32)lector[3], (bool)lector[4], (Byte[])lector[5], (string)lector[6]));
                    }
                }
 
@@ -133,7 +133,7 @@ namespace DataAccess
        }
 
 
-       public void insertar(Producto cont)
+       public void insertar(TOProducto cont)
        {
            try
            {

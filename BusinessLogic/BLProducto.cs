@@ -9,13 +9,13 @@ namespace BusinessLogic
 {
    public class BLProducto
     {
-       public List<Producto> consultatProductos()
+       public List<TOProducto> consultatProductos()
        {
            DAProducto producto = new DAProducto();
            return producto.consultatProductos();
 
        }
-       public Producto consultatProducto(int codigo)
+       public TOProducto consultatProducto(int codigo)
        {
            DAProducto producto = new DAProducto();
            return producto.consultatUnPro(codigo);
@@ -23,14 +23,14 @@ namespace BusinessLogic
        }
 
 
-       public List<Producto> consultarByNombre(string nombre)
+       public List<TOProducto> consultarByNombre(string nombre)
        {
            DAProducto producto = new DAProducto();
            return producto.consultarByNombre(nombre);
 
        }
 
-       public void insertar(Producto cli)
+       public void insertar(TOProducto cli)
        {
            DAProducto producto = new DAProducto();
            producto.insertar(cli);

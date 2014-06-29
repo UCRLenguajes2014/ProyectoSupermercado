@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="Autentificacion.cs" />
     <Compile Include="DACliente.cs" />
+    <Compile Include="DADetalleOrden.cs" />
+    <Compile Include="DAEmpleado.cs" />
+    <Compile Include="DAOrden.cs" />
     <Compile Include="DAProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

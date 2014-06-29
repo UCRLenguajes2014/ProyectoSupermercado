@@ -6,7 +6,7 @@ using System.Text;
 
 namespace TransferObject
 {
-   public  class Producto
+   public  class TOProducto
     {
 
         public int codigo { get; set; }
@@ -17,10 +17,10 @@ namespace TransferObject
         public String unidad { get; set; }
         public Byte[] foto { get; set; }
 
-        public Producto()
+        public TOProducto()
         {
         }
-       public Producto(int p, string p_2, double p_3, int p_4, bool p_5, byte[] p_6, string p_7)
+       public TOProducto(int p, string p_2, double p_3, int p_4, bool p_5, byte[] p_6, string p_7)
        {
            // TODO: Complete member initialization
            this.codigo = p;
