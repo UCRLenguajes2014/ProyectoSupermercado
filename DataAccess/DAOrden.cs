@@ -47,8 +47,106 @@ namespace DataAccess
                 }
             }
             return retorno;
+        }
+
+        public void insertar(TOOrden ord)
+        {
+            try
+            {
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+
+                    SqlCommand ins = new SqlCommand("Insert into Orden(Codigo ,CodigoCliente,Estado,Fecha,Total) values(@Codigo,@CodigoCliente,@Estado,@Estado,@Total)", conex);
+
+                    ins.Parameters.AddWithValue("@Codigo", ord.Codigo);
+                    ins.Parameters.AddWithValue("@CodigoCliente", ord.CodigoCliente);
+                    ins.Parameters.AddWithValue("@Estado", ord.Estado);
+                    ins.Parameters.AddWithValue("@Fecha", ord.Fecha);
+                    ins.Parameters.AddWithValue("@Total", ord.Total);
+                    ins.ExecuteNonQuery();
 
 
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conex.State != ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+        public void modificar(TOOrden ord)
+        {
+            try
+            {
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+
+                    SqlCommand upd = new SqlCommand("UPDATE Orden SET Codigo=@Codigo ,CodigoCliente=@CodigoCliente,Estado=@Estado,Fecha=@Fecha,Total=@Total", conex);
+
+                    upd.Parameters.AddWithValue("@Codigo", ord.Codigo);
+                    upd.Parameters.AddWithValue("@CodigoCliente", ord.CodigoCliente);
+                    upd.Parameters.AddWithValue("@Estado", ord.Estado);
+                    upd.Parameters.AddWithValue("@Fecha", ord.Fecha);
+                    upd.Parameters.AddWithValue("@Total", ord.Total);
+                    upd.ExecuteNonQuery();
+
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conex.State != ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
+        }
+        public void Eliminar(int codigo,)
+        {
+            try
+            {
+                if (conex.State != ConnectionState.Open)
+                {
+                    conex.Open();
+                }
+                SqlCommand del = new SqlCommand("Delete from Orden where Codigo = @codigo", conex);
+
+                del.Parameters.AddWithValue("@codigo", codigo);                
+                del.ExecuteNonQuery();
+
+
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conex.State != ConnectionState.Closed)
+                {
+                    conex.Close();
+                }
+            }
 
         }
     }

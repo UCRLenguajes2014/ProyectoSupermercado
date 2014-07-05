@@ -33,7 +33,7 @@ namespace BusinessLogic
        public void insertar(TOProducto cli)
        {
            DAProducto producto = new DAProducto();
-           producto.insertar(cli);
+           producto.modificar(cli);
 
        }
 

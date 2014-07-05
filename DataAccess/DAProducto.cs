@@ -102,7 +102,7 @@ namespace DataAccess
                {
                    conex.Open();
                }
-               SqlCommand sel = new SqlCommand("SELECT * FROM Producto WHERE Nombre LIKE '%" + nombre + "%' ORDER BY Nombre ASC", conex);
+               SqlCommand sel = new SqlCommand("SELECT * FROM Producto WHERE Nombre LIKE '%'  @buscar  '%' ORDER BY Nombre ASC", conex);
                sel.Parameters.AddWithValue("@buscar", nombre);
                SqlDataReader lector;
                lector = sel.ExecuteReader();
@@ -187,6 +187,43 @@ namespace DataAccess
             
 
                
+
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+           finally
+           {
+               if (conex.State != ConnectionState.Closed)
+               {
+                   conex.Close();
+               }
+           }
+
+       }
+       public void modificar(TOProducto product)
+       {
+           try
+           {
+               if (conex.State != ConnectionState.Open)
+               {
+                   conex.Open();
+
+                   SqlCommand upd = new SqlCommand("UPDATE Producto SET Codigo=@Codigo, Nombre=@Nombre, PrecioVenta=@PrecioVenta, CantidadInventario=@CantidadInventario, Estado=@Estado, Foto=@Foto, UnidadMedida=@UnidadMedida (,,,,,,)", conex);
+
+                   upd.Parameters.AddWithValue("@Codigo", product.codigo);
+                   upd.Parameters.AddWithValue("@Nombre", product.nombre);
+                   upd.Parameters.AddWithValue("@PrecioVenta", product.precio);
+                   upd.Parameters.AddWithValue("@CantidadInventario", product.cantidad);
+                   upd.Parameters.AddWithValue("@Estado", product.estado);
+                   upd.Parameters.AddWithValue("@Foto", product.foto);
+                   upd.Parameters.AddWithValue("@UnidadMedida", product.unidad);
+                   upd.ExecuteNonQuery();
+
+
+               }
 
            }
            catch (Exception)
