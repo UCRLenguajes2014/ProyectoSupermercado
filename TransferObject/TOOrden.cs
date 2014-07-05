@@ -9,7 +9,7 @@ namespace TransferObject
     {
         public int Codigo { get; set; }
 
-        public int CodigoCliente { get; set; }
+        public int CodigoCliente { get; set;}
 
         public int Estado { get; set; }
 
